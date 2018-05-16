@@ -1,0 +1,7 @@
+{
+    "name": "UIkit",
+    "version": "1.0",
+    "description": "UIkit",
+    "manifest_version": 2,
+    "devtools_page": "index.html"
+  }
