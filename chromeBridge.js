@@ -1,5 +1,17 @@
+import { Z_DEFAULT_COMPRESSION } from "zlib";
+
+
 
 function buildUIkitTree(element, parent) {
+
+  function guid() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+  }
 
   if (typeof parent === 'undefined') {
     parent = {name: 'root', children: []};
@@ -11,9 +23,10 @@ function buildUIkitTree(element, parent) {
 
     if (el.__uikit__) {
 
+      const id = el.attributes['uk-devtools-id'] = el.attributes['uk-devtools-id'] || guid();
       const descriptor = {
         name: Object.keys(el.__uikit__).join(','),
-        // el: el,
+        id,
         children: []
       };
 
@@ -27,6 +40,10 @@ function buildUIkitTree(element, parent) {
   }
 
   return JSON.stringify(parent, null, 2);
+
+}
+
+function dump() {
 
 }
 

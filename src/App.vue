@@ -20,9 +20,9 @@ export default {
     },
 
     methods: {
-      selectElement(data) {
-        debugger;
-      }
+        selectElement(data) {
+            debugger;
+        }
     },
 
     mounted() {
